@@ -96,7 +96,7 @@ https://www.kaggle.com/rounakbanik/the-movies-dataset
 
 [3] Python – Text Classification using Bag-of-words Model
 https://vitalflux.com/text-classification-bag-of-words-model-python-sklearn/#:~:text=CountVectorizer%2
-0%28sklearn.feature_extraction.text.CountVectorizer%29%20is%20used%20to%20fit%20the%20bag-orwords,text%20data%2C%20which%20can%20be%20documents%20or%20sentences.
+0%28sklearn.feature_extraction.text.CountVectorizer%29%20is%20used%20to%20fit%20the%20bag-or-words,text%20data%2C%20which%20can%20be%20documents%20or%20sentences.
 
 [4] TF-IDF Vectorizer scikit-learn
 https://medium.com/@cmukesh8688/tf-idf-vectorizer-scikit-learn-dbc0244a911a
