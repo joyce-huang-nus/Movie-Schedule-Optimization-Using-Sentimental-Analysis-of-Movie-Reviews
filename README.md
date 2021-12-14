@@ -35,18 +35,23 @@ Encode review_type to dummy variables
 
 #### EDA and Preliminary Results
 This scatter plot illustrates the polarity score distribution within each review score. As you can see, there are more data points that have a positive polarity score in higher review scores and there are less data points that have a positive polarity score in lower review scores. For example, At review score 12, which corresponds to review score A in the original dataset, we see there are comparatively less data points that have a negative polarity score.
+
 <img width="278" alt="polarity-scatter" src="https://user-images.githubusercontent.com/88580416/145959538-4e436b4c-32a1-4852-9ebd-289305ca5622.PNG">
 
 Furthermore, we compute the average polarity score in each review score range. Interestingly, the higher the review score, the higher the polarity score. We concluded that the polarity score, which is calculated from the review comments, and review score, which is ranked initially by commenters, have a positive correlation.
+
 <img width="266" alt="average-lineplot" src="https://user-images.githubusercontent.com/88580416/145959690-8e54fdb5-e4b7-4b7f-9f84-855422cbdfdc.PNG">
 
 We also wanted to know if the polarity score calculated from movie comments has a significant effect on review score, so we ran an OLS regression model. The polarity score has a positive coefficient and a 0.0000 p-value, meaning that the polarity score has a significant effect on the review score and they are positively correlated.
+
 <img width="280" alt="regression" src="https://user-images.githubusercontent.com/88580416/145959816-2fde8dd3-af08-4e04-b8b7-20387afc8e02.PNG">
 
 We also plot all the data points using their polarity score and subjectivity score calculated from the review comments. We concluded that more polar comments tend to be more subjective.
+
 <img width="231" alt="scatter-01" src="https://user-images.githubusercontent.com/88580416/145960033-14b9544f-b2e6-4bce-a479-cbde73e96cda.PNG">
 
 In this graph, we filtered out the comments that are too subjective (subjectivity score > 0.8) and the movies that have only one comment. Therefore, we have all the data points that have a subjectivity score <= 0.8 and have 2 or more review comments for each movie. Then, we calculated the polarity score of the review comments for each movie and plot against the review score. We saw a slightly positive correlation between the average polarity score for each movie and review scores.
+
 <img width="248" alt="scatter-02" src="https://user-images.githubusercontent.com/88580416/145960093-18725a06-e0ae-4e0e-808c-9f191e2f3b60.PNG">
 
 ### Predict movie sentiments with classification models
