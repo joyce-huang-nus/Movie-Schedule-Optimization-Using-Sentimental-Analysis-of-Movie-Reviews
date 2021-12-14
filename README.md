@@ -55,3 +55,33 @@ In this graph, we filtered out the comments that are too subjective (subjectivit
 <img width="248" alt="scatter-02" src="https://user-images.githubusercontent.com/88580416/145960093-18725a06-e0ae-4e0e-808c-9f191e2f3b60.PNG">
 
 ### Predict movie sentiments with classification models
+Using the same dataset as sentimental analysis (Rotten tomatoes review), we ran several classification models to see if we can use movie comments to predict the sentiments of viewers. Sentiments are calculated from review type. If the movie has a review score greater than or equal to 9 (B-), then the movie has a sentiment of 1, else 0. We input “movie comments” as our independent variables and used “sentiment” as our dependent variable.
+
+#### Data Preprocessing method
+How can we input review contents as independent variables? We first tokenized the sentences into single words. Second, we took out symbols and words without specific positive or negative meaning, such as “with”, “should”, or “these” from the review content. Then, we applied two algorithms: count vectorizer and tf-idf vectorizer, to convert review_content into vectors (meaningful representation of numbers) that can be put into our classification models.
+
+#### The count vectorizer & the tf-idf vectorizer
+The count vectorizer considers the frequencies of words in a sentence, while tf-idf vectorizer considers both the frequencies a word appears in a sentence and the number of sentences the word appears in.
+
+#### Classification models’ results
+We ran 4 classification models, including Logistic Regression, SVM, Multinomial Naive Bayes, and K-nearest neighbors classifier. The accuracy rates calculated from the count vectorizer (BOW) generally have a better performance. Overall, the Multinomial Naive Bayes model has a comparatively higher accuracy rate, so we chose it as our final model.
+
+<img width="468" alt="classification-models" src="https://user-images.githubusercontent.com/88580416/145960843-81ad88ef-09d6-436b-8d09-7f2e54e41636.PNG">
+
+#### Confusion Matrix
+In the test dataset, there are 17,498 data points, with 11,300 true positive sentiments and 6,198 true negative sentiments. The data is unbalanced, with more positive sentiments (about 64.58% are positive sentiments). Therefore, we further looked at the confusion matrix on the models that are initially input with count-vectorizer vectors. In SVM, K-nearest neighbors classifier, and Logistic Regression models, almost all the sentiments are predicted as positive (sentiment = 1), and only the Multinomial Naïve Bayes model has a slightly more accurate prediction with 16356 positive and 1142 negative sentiment predictions.
+
+<img width="346" alt="confusion-matrix" src="https://user-images.githubusercontent.com/88580416/145960994-84f63dae-39c5-475e-9bac-ccbfc9a9d84b.PNG">
+
+#### Word Cloud
+Moreover, we tried to understand the most frequent positive or negative review words used by reviewers. We used the “WordCloud” package and the results are shown in the below figure.
+
+<img width="452" alt="word-cloud" src="https://user-images.githubusercontent.com/88580416/145961175-2a590faf-3bf6-44da-9693-11dffad6e3cf.PNG">
+
+## Business Application
+In a real life setting, film investors and stakeholders often want to make the cinematic arrangements such as ticket prices, ticket availability, and most importantly, number of showtimes and locations of different cinemas the movie will be primarily aired in. It is crucial for them to understand the market demand for the film they invested in in order to maximize profit, and a common way to do that is through premieres and test screenings. We believe that stakeholders and investors could utilize the viewers’ comments from
+the premieres and test runs, and perform sentiment analysis on them to extract the initial responses. In order to arrive at better decisions, we could combine viewers’ demographics with their comments’ sentiment analysis, and figure out which groups respond the best to the film, and which ones detest it or find it somewhat offensive. This way investors of the film could choose to make smarter decisions such as not airing it too much, air it in specific states where the demographics are mostly likely warm to the
+content, air it during times where the demographics would visit the cinemas the most, etc. The editors of the film could even conduct some further editing and blurring, to make sure that the movies are welcome to the wanted target audience, and therefore generate the most revenue out of each film.
+
+## Conclusion and Further Navigations
+In conclusion, we have determined that the Multinomial Naive Bayes model has the most accurate predictions in comparison with the other models in the setting of predicting sentiments with movie comments. This could be used as a preliminary analytical tool for stakeholders to predict the gross box office of the film, and therefore better arrange the screening times and locations. However, there exists a few areas that could be navigated further. To start off, we ruled out comments that we considered as “too subjective” and “too polarized”, but there are films that have such a strong and unique characteristic that only appeal to a certain crowd. Some comments might love it and some might detest it, but both need to be included to arrive at an accurate and relevant prediction. This accuracy issue might also occur as we tokenized the words. We could easily break down a sentence into words that didn’t convey its original implication. For example, a “huge mistake if you don’t watch it over 100 times” comment would give the wrong idea. This could be further improved if we can incorporate more phrases or short sentences in the model to start with, and therefore interpreting a wider range of sentiments. Another important issue to consider is that, during the initial analysis of our data, we recognized that sentiments are in values of only 0 and 1, that is, identifying emotions that are purely positive and purely negative. We could consider that words and emotions have different levels of positivity and negativity, and only considering a comment section’s count of words and counts of sentences in which they appear could throw us off quite a bit. To further improve the accuracy rate of our classification models, we can add a more refined score to reflect comment’s emotions, and eventually produce a movie classification that is more than just “good” and “bad”.
