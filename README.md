@@ -85,3 +85,15 @@ content, air it during times where the demographics would visit the cinemas the 
 
 ## Conclusion and Further Navigations
 In conclusion, we have determined that the Multinomial Naive Bayes model has the most accurate predictions in comparison with the other models in the setting of predicting sentiments with movie comments. This could be used as a preliminary analytical tool for stakeholders to predict the gross box office of the film, and therefore better arrange the screening times and locations. However, there exists a few areas that could be navigated further. To start off, we ruled out comments that we considered as “too subjective” and “too polarized”, but there are films that have such a strong and unique characteristic that only appeal to a certain crowd. Some comments might love it and some might detest it, but both need to be included to arrive at an accurate and relevant prediction. This accuracy issue might also occur as we tokenized the words. We could easily break down a sentence into words that didn’t convey its original implication. For example, a “huge mistake if you don’t watch it over 100 times” comment would give the wrong idea. This could be further improved if we can incorporate more phrases or short sentences in the model to start with, and therefore interpreting a wider range of sentiments. Another important issue to consider is that, during the initial analysis of our data, we recognized that sentiments are in values of only 0 and 1, that is, identifying emotions that are purely positive and purely negative. We could consider that words and emotions have different levels of positivity and negativity, and only considering a comment section’s count of words and counts of sentences in which they appear could throw us off quite a bit. To further improve the accuracy rate of our classification models, we can add a more refined score to reflect comment’s emotions, and eventually produce a movie classification that is more than just “good” and “bad”.
+
+## Reference
+[1] Rotten Tomatoes movies and critic reviews dataset
+https://www.kaggle.com/stefanoleone992/rotten-tomatoes-movies-and-critic-reviews-dataset?select=rotte
+n_tomatoes_movies.csv
+[2] The Movies Dataset
+https://www.kaggle.com/rounakbanik/the-movies-dataset
+[3] Python – Text Classification using Bag-of-words Model
+https://vitalflux.com/text-classification-bag-of-words-model-python-sklearn/#:~:text=CountVectorizer%2
+0%28sklearn.feature_extraction.text.CountVectorizer%29%20is%20used%20to%20fit%20the%20bag-orwords,text%20data%2C%20which%20can%20be%20documents%20or%20sentences.
+[4] TF-IDF Vectorizer scikit-learn
+https://medium.com/@cmukesh8688/tf-idf-vectorizer-scikit-learn-dbc0244a911a
