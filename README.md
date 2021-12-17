@@ -99,3 +99,5 @@ https://vitalflux.com/text-classification-bag-of-words-model-python-sklearn/#:~:
 
 [4] TF-IDF Vectorizer scikit-learn
 https://medium.com/@cmukesh8688/tf-idf-vectorizer-scikit-learn-dbc0244a911a
+
+Video link: https://youtu.be/8UCfaQtp9lY
